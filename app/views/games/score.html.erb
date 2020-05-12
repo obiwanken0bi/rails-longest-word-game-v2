@@ -1,2 +1,13 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<h1>Score</h1>
+
+<% if @word_in_grid %>
+  <% if @english_word %>
+    <p><strong>Congratulations!</strong> <%= @user_word %> is a valid english word!</p>
+  <% else %>
+    <p>Sorry but <strong><%= @user_word %></strong> does not seem to be a valid english word...</p>
+  <% end %>
+<% else %>
+  <p>Sorry but <strong><%= @user_word %></strong> can't be built out of <%= @letters.join(", ") %></p>
+<% end %>
+
+<p><%= link_to "Play again", new_path %></p>
